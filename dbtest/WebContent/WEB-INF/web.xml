@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>dbtest</display-name>
+  <servlet>
+    <servlet-name>FileDownServlet</servlet-name>
+    <servlet-class>com.wally.download.FileDownServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileDownServlet</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>test.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <display-name>FileServlet</display-name>
+    <servlet-name>FileServlet</servlet-name>
+    <servlet-class>com.wally.FileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileServlet</servlet-name>
+    <url-pattern>/FileServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 客户端配置请求路径 -->
+   <servlet>
+    <display-name>cartoonServer</display-name>
+    <servlet-name>cartoonServer</servlet-name>
+    <servlet-class>com.wally.reader.FileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cartoonServer</servlet-name>
+    <url-pattern>/cartoonSrc</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 孔雀王 -->
+   <servlet>
+    <display-name>peacockServer</display-name>
+    <servlet-name>peacockServer</servlet-name>
+    <servlet-class>com.wally.reader.PeacockKingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>peacockServer</servlet-name>
+    <url-pattern>/peacockSrc</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 丁丁历险记-->
+   <servlet>
+    <display-name>tintinServer</display-name>
+    <servlet-name>tintinServer</servlet-name>
+    <servlet-class>com.wally.reader.AdventureServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tintinServer</servlet-name>
+    <url-pattern>/tintinSrc</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <display-name>pathServer</display-name>
+    <servlet-name>pathServer</servlet-name>
+    <servlet-class>com.wally.path.PathServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pathServer</servlet-name>
+    <url-pattern>/pathSrc</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>
