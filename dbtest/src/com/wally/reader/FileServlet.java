@@ -23,12 +23,12 @@ import org.apache.commons.lang.StringUtils;
  */
 public class FileServlet extends HttpServlet 
 {
-	private static String FILE_ADD = "D:/bin/apache-tomcat-6.0.35/webapps/dbtest/srcfile/content";
+	private static String FILE_ADD = "D:/GitHub/dbtest/dbtest/WebContent/srcfile/content";
 	//D:/bin/apache-tomcat-6.0.35/webapps/dbtest/srcfile
-	private static String APP_ADD = "D:/bin/apache-tomcat-6.0.35/webapps/dbtest/srcfile/update";
+	private static String APP_ADD = "D:/GitHub/dbtest/dbtest/WebContent/srcfile/update";
 	//"D:/workspace/dbtest/WebContent/srcfile/update"
 	private static final long serialVersionUID = 1L;
-       
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -180,6 +180,10 @@ public class FileServlet extends HttpServlet
 					
 					String cover = child.getName().replaceAll(".zip", ".png");
 					entity.setCover(path + cover); 
+					
+					//添加时间
+					String date = TimeUtil.getFileCreateDate(child);
+					entity.setDate(date.replace("/", "-"));
 					list.add(entity);
 				}
 			}
@@ -209,5 +213,7 @@ public class FileServlet extends HttpServlet
 		}
 		return b;
 	}
+	
+
 
 }

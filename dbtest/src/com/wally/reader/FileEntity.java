@@ -6,6 +6,7 @@ public class FileEntity
 	private String url;
 	private String cover; //封面
 	private String size;
+	private String date;
 	
 	public FileEntity() {
 	}
@@ -42,5 +43,12 @@ public class FileEntity
 		this.size = size;
 	}
 
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 }

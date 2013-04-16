@@ -178,6 +178,10 @@ public class PeacockKingServlet extends HttpServlet {
 					
 					String cover = child.getName().replaceAll(".zip", ".png");
 					entity.setCover(path + cover); 
+					
+					//添加时间
+					String date = TimeUtil.getFileCreateDate(child);
+					entity.setDate(date.replace("/", "-"));
 					list.add(entity);
 				}
 			}
