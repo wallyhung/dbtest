@@ -55,7 +55,7 @@ public class WuBa {
               
              //组装参数
              HashMap<String, String> params = new HashMap<String, String>();
-             params.put("path", "http://xa.58.com/?utm_source=pinpaizhuanqu&utm_medium=wf&utm_campaign=bp-title");
+             params.put("path", "http://xa.58.com/?utm_source=pinpaizhuanqu&utm_medium=wf&utm_campaign=bp-title");//http://my.58.com/?pts=1388020803227
              params.put("p1", p1);
              params.put("p2", p2);
              params.put("timesign", String.valueOf(date));
