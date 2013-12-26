@@ -73,7 +73,6 @@ public class WuBa {
                   HashMap<String, String> header = new HashMap<String, String>();
                   header.put("Cookie",cookie);
                   
-                  //测试不成功
                    
                   //登陆我的中心 验证是否登陆成功！
                  System.out.println(EntityUtils.toString(SendRequest.sendGet("http://my.58.com/", header, null, "utf-8").getHttpEntity(),"utf-8"));
