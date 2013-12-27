@@ -1,0 +1,72 @@
+Sub 登录_58同城()   'ExcelVba_调用jQuery计算Md5_和_rsa：——http://passport.58.com/login?path=http://my.58.com登录的参数计算
+
+    Set Doc = CreateObject("htmlfile")
+    Set x = CreateObject("msscriptcontrol.scriptcontrol")
+    x.Language = "JavaScript"
+
+    With CreateObject("Microsoft.XMLHTTP")
+        On Error Resume Next
+        .Open "GET", "http://code.jquery.com/jquery-1.10.2.js", False
+        .send
+
+        .Open "GET", "http://passport.58.com/rsa/ppt_security.js", False
+        .send
+
+        .Open "GET", "http://static.58.com/js/v6/source/f01f02dc906c8e6734ed04749e5db7cb.js?version=0.1.13", False
+        .send
+
+    End With
+
+    m0 = "用户名"    '输入用户名明文
+    m1 = "密码"      '输入密码明文
+
+    Set scr = Doc.createElement("script")
+    scr.src = "http://code.jquery.com/jquery-1.10.2.js"
+    Doc.body.appendChild scr
+
+    Set scr = Doc.createElement("script")
+    scr.src = "http://passport.58.com/rsa/ppt_security.js"
+    Doc.body.appendChild scr
+
+    Set scr = Doc.createElement("script")
+    scr.src = "http://static.58.com/js/v6/source/f01f02dc906c8e6734ed04749e5db7cb.js?version=0.1.13"
+    Doc.body.appendChild scr
+
+    With CreateObject("Microsoft.XMLHTTP")
+        On Error Resume Next
+        .Open "GET", "https://passport.58.com/logout?path=http%3A//my.58.com/%3Fpts%3D" & x.eval("new Date().getTime()") & "&back=now", False    '首先退出，以防输入验证码
+        .send
+
+        .Open "GET", "http://passport.58.com/login?path=http://my.58.com", False
+        .send
+        ss = Split(Split(.responseText, "var timespan = ")(1), " - ")(0)
+        tt = Split(Split(.responseText, "target=""formSubmit"">")(1), "<div")(0)
+
+        Doc.body.innerHTML = tt
+        Set scr = Doc.createElement("script")
+        scr.Text = "$(document).ready(function(){var mm = '" & m1 & "' ;var timespan = " & ss & " - new Date().getTime();var timesign = new Date().getTime() + timespan;$(""input#timesign"").val(timesign+'');$(""input#p1"").val(getm32str(mm,timesign+''));$(""input#p2"").val(getm16str(mm,timesign+''));$(""input#p3"").val(encryptString(timesign+encodeURIComponent(mm),'010001','008baf14121377fc76eaf7794b8a8af17085628c3590df47e6534574efcfd81ef8635fcdc67d141c15f51649a89533df0db839331e30b8f8e4440ebf7ccbcc494f4ba18e9f492534b8aafc1b1057429ac851d3d9eb66e86fce1b04527c7b95a2431b07ea277cde2365876e2733325df04389a9d891c5d36b7bc752140db74cb69f'));});"
+        Doc.body.appendChild scr
+        t1 = Timer
+        Do Until Timer > t1 + 0.35
+            DoEvents
+        Loop
+        postdata = "username=" & m0 & "&password=password&remember=on&mcresult=" & x.eval(Format(Date, "yyyymmdd") & "*37>>2")  '>>右移操作，将二进制码整体右移2位数
+        For p = 0 To 7
+            If p = 1 Then
+                postdata = postdata & "&" & Doc.all.tags("input")(p).Name & "=http%3A%2F%2Fmy.58.com%3Fpts%3D" & Split(Doc.all.tags("input")(p).Value, "=")(1)
+            Else
+                postdata = postdata & "&" & Doc.all.tags("input")(p).Name & "=" & Doc.all.tags("input")(p).Value    '这些，就是登录的POST参数
+            End If
+        Next p
+
+        .Open "POST", "http://passport.58.com/dounionlogin", False
+        .setRequestHeader "Referer", "http://passport.58.com/login?path=http://my.58.com"
+        .setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+        .setRequestHeader "Connection", "Keep-Alive"
+        .send postdata
+        ss = Split(.responseText, """")(3)
+    End With
+    Set ie = CreateObject("internetexplorer.application")
+    ie.navigate ss
+    ie.Visible = True
+End Sub
