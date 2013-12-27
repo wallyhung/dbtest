@@ -51,7 +51,7 @@ public class WuBa {
                 result += m32.charAt(i);
             }
              
-             String p2 = (String)inv2.invokeFunction("getm16str",result,time);
+            String p2 = (String)inv2.invokeFunction("getm16str",result,time);
               
              //组装参数
              HashMap<String, String> params = new HashMap<String, String>();
@@ -63,8 +63,8 @@ public class WuBa {
              params.put("mobile", "手机号");
              params.put("password", "password");
              params.put("remember", "on");
-             //发送请求并获取cookie
-             String cookie =  SendRequest.sendGet("http://passport.58.com/dologin", null, params, "utf-8").getCookie();
+             //发送请求并获取cookie    dounionlogin
+             String cookie =  SendRequest.sendGet("http://passport.58.com/dounionlogin", null, params, "utf-8").getCookie();
              return cookie;
     }
      
@@ -78,5 +78,5 @@ public class WuBa {
                  System.out.println(EntityUtils.toString(SendRequest.sendGet("http://my.58.com/", header, null, "utf-8").getHttpEntity(),"utf-8"));
                    
     }
-
+    
 }
