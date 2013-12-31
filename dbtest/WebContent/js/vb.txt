@@ -1,4 +1,4 @@
-Sub µÇÂ¼_58Í¬³Ç()   'ExcelVba_µ÷ÓÃjQuery¼ÆËãMd5_ºÍ_rsa£º¡ª¡ªhttp://passport.58.com/login?path=http://my.58.comµÇÂ¼µÄ²ÎÊı¼ÆËã
+Sub ç™»å½•_58åŒåŸ()   'ExcelVba_è°ƒç”¨jQueryè®¡ç®—Md5_å’Œ_rsaï¼šâ€”â€”http://passport.58.com/login?path=http://my.58.comç™»å½•çš„å‚æ•°è®¡ç®—
 
     Set Doc = CreateObject("htmlfile")
     Set x = CreateObject("msscriptcontrol.scriptcontrol")
@@ -17,8 +17,8 @@ Sub µÇÂ¼_58Í¬³Ç()   'ExcelVba_µ÷ÓÃjQuery¼ÆËãMd5_ºÍ_rsa£º¡ª¡ªhttp://passport.58.c
 
     End With
 
-    m0 = "ÓÃ»§Ãû"    'ÊäÈëÓÃ»§ÃûÃ÷ÎÄ
-    m1 = "ÃÜÂë"      'ÊäÈëÃÜÂëÃ÷ÎÄ
+    m0 = "ç”¨æˆ·å"    'è¾“å…¥ç”¨æˆ·åæ˜æ–‡
+    m1 = "å¯†ç "      'è¾“å…¥å¯†ç æ˜æ–‡
 
     Set scr = Doc.createElement("script")
     scr.src = "http://code.jquery.com/jquery-1.10.2.js"
@@ -34,7 +34,7 @@ Sub µÇÂ¼_58Í¬³Ç()   'ExcelVba_µ÷ÓÃjQuery¼ÆËãMd5_ºÍ_rsa£º¡ª¡ªhttp://passport.58.c
 
     With CreateObject("Microsoft.XMLHTTP")
         On Error Resume Next
-        .Open "GET", "https://passport.58.com/logout?path=http%3A//my.58.com/%3Fpts%3D" & x.eval("new Date().getTime()") & "&back=now", False    'Ê×ÏÈÍË³ö£¬ÒÔ·ÀÊäÈëÑéÖ¤Âë
+        .Open "GET", "https://passport.58.com/logout?path=http%3A//my.58.com/%3Fpts%3D" & x.eval("new Date().getTime()") & "&back=now", False    'é¦–å…ˆé€€å‡ºï¼Œä»¥é˜²è¾“å…¥éªŒè¯ç 
         .send
 
         .Open "GET", "http://passport.58.com/login?path=http://my.58.com", False
@@ -50,12 +50,12 @@ Sub µÇÂ¼_58Í¬³Ç()   'ExcelVba_µ÷ÓÃjQuery¼ÆËãMd5_ºÍ_rsa£º¡ª¡ªhttp://passport.58.c
         Do Until Timer > t1 + 0.35
             DoEvents
         Loop
-        postdata = "username=" & m0 & "&password=password&remember=on&mcresult=" & x.eval(Format(Date, "yyyymmdd") & "*37>>2")  '>>ÓÒÒÆ²Ù×÷£¬½«¶ş½øÖÆÂëÕûÌåÓÒÒÆ2Î»Êı
+        postdata = "username=" & m0 & "&password=password&remember=on&mcresult=" & x.eval(Format(Date, "yyyymmdd") & "*37>>2")  '>>å³ç§»æ“ä½œï¼Œå°†äºŒè¿›åˆ¶ç æ•´ä½“å³ç§»2ä½æ•°
         For p = 0 To 7
             If p = 1 Then
                 postdata = postdata & "&" & Doc.all.tags("input")(p).Name & "=http%3A%2F%2Fmy.58.com%3Fpts%3D" & Split(Doc.all.tags("input")(p).Value, "=")(1)
             Else
-                postdata = postdata & "&" & Doc.all.tags("input")(p).Name & "=" & Doc.all.tags("input")(p).Value    'ÕâĞ©£¬¾ÍÊÇµÇÂ¼µÄPOST²ÎÊı
+                postdata = postdata & "&" & Doc.all.tags("input")(p).Name & "=" & Doc.all.tags("input")(p).Value    'è¿™äº›ï¼Œå°±æ˜¯ç™»å½•çš„POSTå‚æ•°
             End If
         Next p
 
