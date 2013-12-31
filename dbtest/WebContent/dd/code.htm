@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0028)http://passport.58.com/login -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户登录-58同城</title>
+
+<link rel="Shortcut Icon" href="http://pic2.58.com/images/favicon.ico" type="image/x-icon">
+<script type="text/javascript">document.domain = '58.com';try{var ____json4fe = {catentry:{dispid:'',name:'',listname:''},locallist:{dispid:'',name:'',listname:''},modules:'passport'}}catch(e){}; </script>
+<script src="./code_files/jquery1.3.2.js" type="text/javascript"></script>
+<script src="./code_files/boot_passport_version.js" type="text/javascript"></script><script type="text/javascript" src="./code_files/f01f02dc906c8e6734ed04749e5db7cb.js"></script>
+
+<link rel="stylesheet" href="./code_files/login_6.css" type="text/css"><script type="text/javascript" src="./code_files/ppt_security.js"></script>
+<style type="text/css">
+*:focus {outline: none}
+#conright{background:#fcfcfc; border-bottom:4px solid #f9f9f9; padding-bottom:0}
+.scrool-bg{border:1px solid #ddd; background:none; border-top:2px solid #e66a34; width:275px; padding-top:25px; overflow:hidden}
+.logintit{background:#fffdcc; border:1px solid #f2e2ad; padding:5px 10px; line-height:22px; overflow:hidden}
+.logintit .red{color:#f23f0f}
+.logintit input,.logintit label{margin:0;cursor:pointer; vertical-align:middle; display:inline-block}
+.logintit label{padding-left:6px; _margin-top:3px}
+#scrool1{margin-left:20px}
+
+.logpic{width:50px; color:#666; font-size:14px; float:left}
+#conright .loginbox{padding-bottom:15px}
+#conright .loginbox .inp{width:210px; height:22px; line-height:22px; border:1px solid #ddd; float:left; margin:0; padding:8px 0; padding-left:10px; background:url(http://pic2.58.com/ui6/my/images/loginpbg.gif) repeat-x 0 0 #fff}
+#conright .loginbox #validatecode{width:60px; margin-right:3px; _margin-right:0; padding-top:4px; padding-bottom:4px; float:inherit; *margin-top:3px; _margin-top:0}
+#conright .loginbox #validatetr td{*padding-top:12px; _padding-top:8px}
+#conright .loginbox input.wrong_color{border:1px solid #a7c0f1;height:22px; background-color:#fff}
+#conright .loginbox input.action_color{border:1px solid #a7c0f1;height:22px; background-color:#fff}
+#conright .loginbox .logpic.wrong_color,#conright .loginbox .logpic.action_color{background-color:#fff; border:1px solid #a7c0f1; height:38px; border-right:none}
+#conright .loginbox input.pw,#conright .loginbox input.pw_wc{background:url(http://pic2.58.com/ui6/my/images/passwordbg.png?20120814) no-repeat 0 0}
+
+#conright .mid{ background:none; border:none; color:#f23f0f; height:21px; line-height:21px; padding:0 10px 0 51px; width:235px; position:static;}
+#conright .mid .conn{line-height:20px; line-height:22px\9; _line-height:20px; overflow:hidden}
+.loginbox table td{padding:4px 0}
+#passwordtr td{padding-bottom:0; *padding-bottom:5px; _padding-bottom:0}
+.link-login{ border-top:1px solid #dfdfdf; padding-top:15px}
+</style>
+
+
+<script type="text/javascript" src="http://w.cnzz.com/c.php?id=30017898"></script></head>
+<body ryt14544="1">
+<form name="submitForm" method="post" action="http://passport.58.com/dounionlogin" id="submitForm" target="formSubmitFrame">
+<input type="hidden" name="isweak" id="isweak" value="0">
+<input type="hidden" name="path" value="http://my.58.com/?pts=1388480662702">
+<input type="hidden" name="p1" id="p1">
+<input type="hidden" name="p2" id="p2">
+<input type="hidden" name="p3" id="p3">
+<input type="hidden" name="timesign" id="timesign">
+<input type="hidden" id="ptk" name="ptk" value="a4805eacdba04eb693337fd6fe1a9aab">
+<input type="hidden" id="cd" name="cd" value="2518">
+	<div id="login-header" class="win900">
+		<a href="http://www.58.com/" id="logo" style="left:20px;"><img src="./code_files/logo-49h.gif" alt="中文最大生活信息门户"></a>
+		<div id="cityname" class="loginname" style="left:208px;"><span>用户登录</span></div>
+		<div id="logintext" style="right:-10px;"><a href="http://www.58.com/">返回首页</a>|<a href="http://about.58.com/" target="_blank">帮助</a></div>
+	</div>
+	<div class="cb win900">
+		<div id="conleft"><style>#login-welcome-bg{background:url(https://passport.58.com/pic2/ui6/my/images/login-2014chunjie_0.png?1) no-repeat 0 0;display:block;} #login-welcome-bg:hover{opacity:0.9;filter:alpha(opacity=90);}</style><a id="login-welcome-bg" href="http://static.58.com/zt/2014chunjie/index.html?from=login" target="_blank"></a></div>
+		<div id="conright">
+			<div class="scrool-bg">
+                <div id="logintit" class="logintit" style="display:none;">
+                	<span class="red">账号认证冲突！请选择账户类型</span><br>
+                    <input name="loginflag" type="radio" value="2" onclick="showSelectLoginFlag(false);" id="loginflag2"><label for="loginflag2">手机号</label>
+                    <input name="loginflag" type="radio" value="1" onclick="showSelectLoginFlag(false);" id="loginflag1"><label for="loginflag1">用户名</label>
+                </div>
+			  <div class="loginbox">
+				<div id="tipDiv"></div>
+				  <table>
+					  <tbody><tr id="usernametr"><td><span class="logpic">账户名</span></td><td><input class="inp inw c_ccc useplaceholder" type="text" id="username" name="username" size="20" value="用户名/电子邮箱/手机号码" placeholderval="用户名/电子邮箱/手机号码" autocomplete="off"></td></tr>
+					  <tr id="passwordtr"><td><span class="logpic">密码</span></td><td><input class="inp inw c_ccc pw useplaceholder" id="password" type="password" style="margin-bottom:7px;" name="password" size="20" onpaste="return false" placeholderval="" autocomplete="off" maxlength="16"></td></tr>
+					  <tr>
+					  	<td></td>
+						  <td style="padding: 0pt;">
+							  <input type="checkbox" style="vertical-align: middle;" id="coks" value="on" name="remember">
+							  <label class="logintip" for="coks">下次自动登录 (公共场所慎用)</label>
+						  </td>
+					  </tr>
+					  <tr>
+					  	<td></td>
+						  <td>
+							  <span class="butt" style="line-height:34px;">
+							  <input type="submit" name="btnSubmit" value="登录" class="btns" accesskey="l" id="btnSubmit">
+							  </span><span class="reg-a"><a href="http://passport.58.com/reg">免费注册</a>|<a href="http://passport.58.com/forgetpassword">找回密码</a> </span>
+						  </td>
+					  </tr>
+				  </tbody></table>
+				</div>
+				<div class="link-login">
+				   <span class="lots">使用合作网站账号登录：</span>
+					<a class="loico" id="lo_qq" title="QQ用户登录" href="http://passport.58.com/qqlogin?path=http://my.58.com/?pts=1388480662702">QQ</a>
+					<a class="loico" id="lo_sina" title="新浪微博用户登录" href="http://passport.58.com/sinalogin_v2?path=http://my.58.com/?pts=1388480662702">新浪微博</a>
+					<a class="loico loico-b" id="lo_pay" title="支付宝用户登录" href="http://passport.58.com/alipaylogin?path=http://my.58.com/?pts=1388480662702">支付宝</a>
+					<a class="loico" id="lo_feixin" title="飞信用户登录" href="http://passport.58.com/feixinlogin?path=http://my.58.com/?pts=1388480662702">飞信</a>
+					<a class="loico " id="lo_baidu" title="百度登录" href="http://passport.58.com/baidulogin?path=http://my.58.com/?pts=1388480662702">百度</a>
+					<a class="loico loico-b" id="lo_renren" title="人人网用户登录" href="http://passport.58.com/renrenlogin?path=http://my.58.com/?pts=1388480662702">人人网</a>
+				 </div>
+			</div><!--scrool bg-->
+			<div class="clear"></div>
+		</div>
+		<div class="c"></div>
+	</div>
+	<div id="footer" class="win900">
+		<p>© 58.com <a class="fduihua" target="_blank" title="有问题请与58客服进行对话" href="http://about.58.com/">与58对话</a></p>
+	</div>
+<input name="mcresult" value="1232124964771812498745637615" style="display:none"></form>
+<script type="text/javascript">
+	var timespan = 1388480662699 - new Date().getTime();
+	var passporttimeout;
+	var upwd="";
+	function clearPassportTimeout(){
+    	clearTimeout(passporttimeout);
+    }
+	$.fn.placeholder = function(){
+		var defaultValue = $(this).attr('placeholderval');
+		$(this).bind("focus",function(){
+			$(this).removeClass("c_ccc");
+			
+			if($(this).attr("id")=="password")
+				$(this).removeClass("pw").removeClass("pw_wc");
+			
+			if($(this).val()==defaultValue)
+				$(this).val(""); 
+			
+		}).bind("blur",function(){
+			if($(this).val()==""){
+				$(this).val(defaultValue);
+				$(this).addClass("c_ccc");
+				if($(this).attr("id")=="password")
+					$(this).addClass("pw_wc");
+			}
+		}).bind("change",function(){
+			if($(this).val()==""){
+				$(this).addClass("c_ccc");
+				if($(this).attr("id")=="password")
+					$(this).addClass("pw").addClass("pw_wc");
+			}else{
+				$(this).removeClass("c_ccc");
+				if($(this).attr("id")=="password")
+					$(this).removeClass("pw").removeClass("pw_wc");
+			}
+		});
+	}
+	
+    $(function() {
+    	$("#usernametr").html('<td><span class="logpic">账户名</span></td><td><input class="inp inw c_ccc useplaceholder" type="text" id="username" name="username" size="20" value="用户名/电子邮箱/手机号码" placeholderval="用户名/电子邮箱/手机号码" autocomplete="off" /></td>');
+    	$("#passwordtr").html('<td><span class="logpic">密码</span></td><td><input class="inp inw c_ccc pw useplaceholder" id="password" type="password" style="margin-bottom:7px;" name="password" size="20" onpaste="return false" placeholderval="" autocomplete="off" maxlength="16" /></td>');
+    	
+    	        $.formValidator.initConfig({ formid: "submitForm", errorfocus: false, forcevalid: true, btnid: 'btnSubmit', btnvalue: '登录', btnactionvalue: '登录中...', fun: function() {
+            var wrongTimes = 0;
+            if (GetCookieValue('wrongtimes') != null) {
+                wrongTimes = parseInt(GetCookieValue('wrongtimes'));
+            }
+            if (wrongTimes > 4) {
+                alert("您密码输入错误次数太多,请过一段时间再试");
+                return false;
+            }
+            var timesign = new Date().getTime() + timespan;
+            if(timesign - 1388480662699 > 1800000){
+            	alert("页面已过期，请刷新后再提交");
+            	window.location.href = window.location.href;
+            	return false;
+            }
+            if(passwordIsWeak($("#username").val(),$("#password").val()))
+            	$("#isweak").val("1");
+            else
+            	$("#isweak").val("0");
+            $("#timesign").val(timesign);
+            $("#p1").val(getm32str($("#password").val(),timesign+""));
+            $("#p2").val(getm16str($("#password").val(),timesign+""));
+            $("#p3").val(encryptString(timesign+encodeURIComponent($("#password").val()),"010001","008baf14121377fc76eaf7794b8a8af17085628c3590df47e6534574efcfd81ef8635fcdc67d141c15f51649a89533df0db839331e30b8f8e4440ebf7ccbcc494f4ba18e9f492534b8aafc1b1057429ac851d3d9eb66e86fce1b04527c7b95a2431b07ea277cde2365876e2733325df04389a9d891c5d36b7bc752140db74cb69f"));
+            $("#username").addClass("c_ccc").attr("readonly","readonly");
+            $("#password").val("password").addClass("c_ccc").attr("readonly","readonly");
+            passporttimeout = setTimeout(function(){
+            //	alert("服务器繁忙，请稍后再试");
+            	$("#password").val(upwd);
+            	$.formValidator.subfalse('submitForm', 'btnSubmit', '登录');
+            },10000);
+            return true;
+        }, errorclass: "sc", successclass: "hc", focusclass: "hc", tiphtml: '<div class="mid mid-t1"><div class="conn" id=\'errorTip\'>{0}</div></div>'
+        });
+
+        $("#username").formValidator({ onfocus: "", tipid: 'tipDiv' }).inputValidator({ onerror: "您还没有输入账户名" }).functionValidator({ fun: function(val, elem) {
+			if(val=="用户名/电子邮箱/手机号码")
+				return "您还没有输入账户名";
+			return true;
+        }
+        }).regexValidator({ regexp: "^[\\w|\\u4e00-\\u9fa5|\@|\\.|\\-]{2,40}$", onerror: "用户名格式错误" });
+        $("#username").bind("change",function() {
+            $(this).val($.formValidator.QtoB(this.value));
+        });
+        $("#password").formValidator({ onfocus: "", tipid: 'tipDiv' }).inputValidator({ onerror: "您还没有输入密码" }).regexValidator({ regexp: "^[\\s\\S]{6,}$#^(.){6,16}$", onerror: "密码太短，最少为6位。#密码不应超过16个字符。" });
+        $("#password").bind("change",function() {
+            upwd = $(this).val();
+        });
+        $("#validatecode").formValidator({ onfocus: "", tipid: 'tipDiv' }).inputValidator({ onerror: "请输入验证码" }).regexValidator({ regexp: "^([a-zA-Z0-9]){5}$", onerror: "验证码输入不正确。" });
+        $("#validatecode").bind("blur",function() {
+            $(this).val($.formValidator.QtoB(this.value));
+        });
+
+        $('#username').placeholder();
+        $('#password').placeholder();
+        $("#submitForm").attr("target", "formSubmitFrame");
+        $("#formSubmitFrame").get(0).contentWindow.name = "formSubmitFrame";
+    });
+    
+    function clearform(){
+        $("#username").removeClass("c_ccc").removeAttr("readonly");
+        $("#password").removeClass("c_ccc").removeAttr("readonly").val(upwd);
+    }
+    
+    function showvalidcode(){
+    	var result;
+    	if(!$("#validatetr") || $("#validatetr").html()==null){
+	    	var html = '<tr id="validatetr"><td><span class="logpic">验证码</span></td><td><input class="inp inw3" id="validatecode" maxlength="5" name="validatecode" size="2" type="text"><img src="/validatecode" style="cursor: pointer; height: 32px;" id="vcodeImg" name="vcodeImg" onclick="document.getElementById(\'vcodeImg\').src=\'/validatecode?temp=123\'+ (new Date().getTime().toString(36)); _gaq.push([\'pageTracker._trackEvent\', \'58_my\', \'passport\', \'refresh\']); return false" align="absmiddle"> <a class="f12" href="javascript:void(0)" onclick="document.getElementById(\'vcodeImg\').src=\'/validatecode?temp=123\'+ (new Date().getTime().toString(36)); _gaq.push([\'pageTracker._trackEvent\', \'58_my\', \'passport\', \'refresh\']); return false">看不清？</a></td></tr>';
+			$("#passwordtr").after(html);
+			result = true;
+    	}else{
+    		$("#vcodeImg").attr("src", "/validatecode?temp=123" + (new Date().getTime().toString(36)));
+    		result = false;
+    	}
+    	_gaq.push(['pageTracker._trackEvent', '58_my', 'passport', 'show']);
+    	return result;
+    }
+    
+    function passwordIsWeak(username,pwd){
+    	if(pwd.match("^[a-z|A-Z]+$") && (isContinuousChar(pwd) || isSameChar(pwd))) return true;
+	    if(pwd.match("^[\\d]+$") && (isContinuousChar(pwd) || isSameChar(pwd))) return true;
+	    if(pwd.match("^[_]+$")) return true;
+	    if(username==pwd) return true;
+	    return false;
+    }
+    
+    function isContinuousChar(str){
+    	var str = str.toLowerCase();
+        var flag = 0;
+        for(var i=0;i<str.length;i++){
+        	if(str.charCodeAt(i) != flag+1 && flag!=0)
+        		return false;
+        	else
+        		flag = str.charCodeAt(i);
+        }
+        return true;
+    }
+    
+    function isSameChar(str){
+    	var str = str.toLowerCase();
+        var flag = 0;
+        for(var i=0;i<str.length;i++){
+        	if(str.charCodeAt(i) != flag && flag!=0)
+        		return false;
+        	else
+        		flag = str.charCodeAt(i);
+        }
+        return true;
+    }
+    
+    function showSelectLoginFlag(f){
+    	if(f)
+    		$("#logintit").show(500);
+    	else
+    		$("#logintit").hide(500);
+    }
+</script>
+<script type="text/javascript">
+var iqas_mcvalue = '1388480662302';var iqas_mcformula = 'function a(){var b="121013853660701387634526504";var c="";for(var d=0;d<b.length;d++){if(b.charAt(d)==9) c+="0"; else c+=(parseInt(b.charAt(d))+1);}return "1"+c};try{a();}catch(e){}';$(function(){$("<input name='mcresult' value='"+eval(iqas_mcformula.replace('checkValue', iqas_mcvalue))+"' / style='display:none'>").appendTo($('#submitForm'));});
+</script>
+<script type="text/javascript">
+    document.write('<scr' + 'ipt src="' + 'http://static.58.com' + '/js/loginAd.js?rand=' + Math.random() + '"></scr' + 'ipt>');
+</script><script src="./code_files/loginAd.js"></script>
+<script type="text/javascript">
+	document.write('<scr' + 'ipt src="' + 'http://usdtop.58.com' + '/advertising/echo.js?cityid=0&cateid=0&categorycode=2001&rand=' + Math.random() + '"></scr' + 'ipt>');
+</script><script src="./code_files/echo.js"></script>
+<iframe id="formSubmitFrame" name="formSubmitFrame" src="./code_files/submit.htm" style="visibility: hidden; height: 0px; width: 0px;"></iframe>
+<div style="display:none">
+<script type="text/javascript">
+var _gaq = _gaq || []; var site_name = "58";
+_gaq.push(['pageTracker._setAccount', 'UA-877409-4']); 
+_gaq.push(['pageTracker._setDomainName', '.58.com']);
+_gaq.push(['pageTracker._setAllowLinker', true]); 
+_gaq.push(['pageTracker._addOrganic', 'sogou', 'query']);
+_gaq.push(['pageTracker._addOrganic', 'baidu', 'word']);
+_gaq.push(['pageTracker._addOrganic', 'soso', 'w']);
+_gaq.push(['pageTracker._addOrganic', 'youdao', 'q']);
+_gaq.push(['pageTracker._trackPageview']);
+fe.init(function(){ 
+	js.append(('https:' == document.location.protocol ? ' https://ssl' : ' http://www') + '.google-analytics.com/ga.js'); 
+	js.append(' http://tracklog.58.com/referrer4.js');
+});
+</script>
+</div><div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="./code_files/saved_resource">
+</div>
+
+
+</body></html>
