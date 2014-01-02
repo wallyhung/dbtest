@@ -3,15 +3,28 @@ package com.wally.login58;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-import org.apache.http.util.EntityUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class WuBa {
 
@@ -39,6 +52,17 @@ public class WuBa {
 		 * )); 验证码:http://passport.58.com/validatecode?temp=123
 		 * 
 		 */
+		Map<String, String> paramsValue = parse("");
+		for (String s : paramsValue.keySet())
+		{
+			System.out.println(s + ":-----------" + paramsValue.get(s));
+			
+		}
+	    
+		
+		
+		
+		
 
 		// p1的获取 执行js中的方法
 		String p1 = (String) inv2.invokeFunction("getm32str", pass, time);
@@ -82,10 +106,72 @@ public class WuBa {
 		header.put("Cookie", cookie);
 
 		// 登陆我的中心 验证是否登陆成功！
-		System.out.println(EntityUtils.toString(
-				SendRequest.sendGet("http://my.58.com/", header, null, "utf-8")
-						.getHttpEntity(), "utf-8"));
+//		System.out.println(EntityUtils.toString(
+//				SendRequest.sendGet("http://my.58.com/", header, null, "utf-8")
+//						.getHttpEntity(), "utf-8"));
 
+	}
+	
+	
+	
+	static Map<String, String> parse(String html)
+	{
+		Map<String, String> params = new HashMap<String, String>();
+//		Document doc = Jsoup.parse(html);
+		
+		Document doc = null;
+		try 
+		{
+			doc = Jsoup.connect("http://passport.58.com/login").get();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Elements inputs = doc.select("input[name]");
+		for (Iterator iterator = inputs.iterator(); iterator.hasNext();) 
+		{
+			Element element = (Element) iterator.next();
+			
+			params.put(element.attr("name"), element.attr("value"));
+		}
+		
+		return params;
+	}
+	
+	
+	
+	
+	
+	/**
+	 * 获取网页内容
+	 * @param url
+	 * @return
+	 */
+	static String get(String url)
+	{
+		String html = null;
+		HttpClient client = new DefaultHttpClient();
+		
+		HttpGet get = new HttpGet(url);
+		HttpResponse response;
+		try {
+			response = client.execute(get);
+			
+			System.out.println(response.getStatusLine());
+			HttpEntity entity = response.getEntity();
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(entity.getContent(), "UTF-8"));
+			
+			html = IOUtils.toString(br);
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return html;
 	}
 
 }
