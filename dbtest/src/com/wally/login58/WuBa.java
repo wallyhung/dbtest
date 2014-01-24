@@ -29,6 +29,7 @@ import org.jsoup.select.Elements;
 public class WuBa {
 
 	private static final String path = "D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/dbtest/js/wuba.js";
+	private static final String rsa_path = "D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/dbtest/js/RSA.js";
 
 	public String test(String name, String pass) throws Exception {
 
@@ -60,9 +61,6 @@ public class WuBa {
 		}
 	    
 		
-		
-		
-		
 
 		// p1的获取 执行js中的方法
 		String p1 = (String) inv2.invokeFunction("getm32str", pass, time);
@@ -78,7 +76,31 @@ public class WuBa {
 
 		String p2 = (String) inv2.invokeFunction("getm16str", result, time);
 		
+		
+		// 读取JS文件
+		BufferedReader buftt = new BufferedReader(new InputStreamReader(new FileInputStream(new File(rsa_path))));
+
+		// 调用js。。这里是关键 啊
+		ScriptEngineManager scriptManagertt = new ScriptEngineManager();
+		ScriptEngine jstt = scriptManagertt.getEngineByExtension("js");
+		// 执行JS
+		jstt.eval(buftt);
+		Invocable invtt = (Invocable) jstt;
 		String p3 = "";
+		try {
+			
+			
+			String a1 = String.valueOf(date) + pass;
+			p3 = (String) invtt.invokeFunction("encryptWuba", a1, "010001","");
+			System.out.println("p3的值为：-----" + p3);
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+				
+		
+		
+		
 
 		// 组装参数
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -88,12 +110,12 @@ public class WuBa {
 		params.put("p2", p2);
 		params.put("p3", p3);
 		params.put("timesign", String.valueOf(date));
-		params.put("ptk", "手机号");
-		params.put("cd", "手机号");
+		params.put("ptk", paramsValue.get("ptk"));
+		params.put("cd", paramsValue.get("cd"));
 		params.put("username", name);
 		params.put("password", "password");
 		// params.put("validatecode", "de22q");
-		params.put("mcresult", "password");
+		params.put("mcresult", paramsValue.get("mcresult"));
 		params.put("remember", "on");
 		// 发送请求并获取cookie dounionlogin
 		String cookie = SendRequest.sendGet("http://passport.58.com/dounionlogin", null, params, "utf-8").getCookie();
